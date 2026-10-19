@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>MayDan Appear | Tienda online</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
-
 
 <body>
 
@@ -17,55 +13,127 @@
   <div class="barraanuncio">
     Descubrí prendas, marcas y nuevas combinaciones.
   </div>
-  
 
   <header class="header">
-<div class="barraprincipal">
-  <img class="logotipo" src="logo.png" alt="Logotipo de MayDan Appear">
+    <div class="barraprincipal">
+      <img class="logotipo" src="logo.png" alt="Logotipo de MayDan Appear">
 
-   <!-- TODO: 2) CUADRO DE BUSQUEDA -->
-  <form class="barrabusqueda" role="search">
-    <input class="inputbuscador"
-           type="search"
-           aria-label="Buscar"
-           autocomplete="off"
-           inputmode="search"
-           placeholder="¿Qué estás buscando?">
-    <button type="submit" class="botonbuscador" aria-label="Buscar">
-      <span class="iconobuscar">⌕</span>
-    </button>
-  </form>
+       <!-- TODO: 2) CUADRO DE BUSQUEDA -->
+      <form class="barrabusqueda" role="search">
+        <input class="inputbuscador"
+               type="search"
+               aria-label="Buscar"
+               autocomplete="off"
+               inputmode="search"
+               placeholder="¿Qué estás buscando?">
+        <button type="submit" class="botonbuscador" aria-label="Buscar">
+          <span class="iconobuscar">⌕</span>
+        </button>
+      </form>
 
-
-  <nav class="botonesextra">
-    <a href="carro.html"><img class="iconocarrito" src="carro.png" alt="Carrito de Compras"></a>
-    <a href="favoritos.html"><img class="iconofavoritos" src="corazon.png" alt="Favoritos"></a>
-  </nav>
-</div>
+      <nav class="botonesextra">
+        <a href="carro.html"><img class="iconocarrito" src="carro.png" alt="Carrito de Compras"></a>
+        <a href="favoritos.html"><img class="iconofavoritos" src="corazon.png" alt="Favoritos"></a>
+      </nav>
+    </div>
   </header>
 
-
-  <hr class="linea1" width="100%" color="#e8e1e1" size="1%">
-
+  <hr class="linea1">
 
    <!-- TODO: 3) BARRA DE MENÚ -->
   <nav class="menu">
     <a href="index.html" class="inicio">Inicio</a>
-    <a href="catalogo.html" class="catalogo">Cátalogo</a>
+    <a href="catalogo.html" class="catalogo">Catálogo</a>
     <a href="nosotros.html" class="nosotros">Nosotros</a>
     <a href="servicios.html" class="servicios">Servicios</a>
     <a href="contacto.html" class="contacto">Contacto</a>
     <a href="recienllegados.html" class="recienllegados">Recién Llegados ↗</a>
   </nav>
 
+   <!-- TODO: 4) CARRUSEL -->
+<section class="carrusel-wrap">
+  <div class="carrusel" id="carrusel">
 
-     <!-- TODO: 4) CARRUSEL -->
-  <div class="carrusel">
-    <div>
-  <p class="descripcion-carrusel">Descubre nuestras últimas novedades</p>
+    <!-- SLIDE 1 -->
+    <div class="slide">
+      <div class="textocarrusel">
+        <p class="t1">DESCUBRE LA NUEVA SELECCIÓN</p>
+        <p class="t2">Tu estilo, tu manera.</p>
+        <p class="t3">Prendas para combinar como quieras.</p>
+        <button class="botonexplorar">explorar catálogo ↗</button>
+      </div>
+      <div class="imagendiv1">
+        <img class="imagencarrusel" src="carrusel1.png" alt="Imagen del carrusel 1">
+      </div>
     </div>
-  <img class="imagen-carrusel" src="carrusel1.png" alt="Imagen del carrusel 1">
+
+    <div class="slide">
+      <div class="textocarrusel">
+        <p class="t1">OFERTAS DE TEMPORADA</p>
+        <p class="t2">Hasta 40% off.</p>
+        <p class="t3">Solo por esta semana.</p>
+        <button class="botonexplorar">ver ofertas ↗</button>
+      </div>
+      <div class="imagendiv1">
+        <img class="imagencarrusel2" src="carrusel2.jpg" alt="Imagen del carrusel 2">
+      </div>
+    </div>
+
   </div>
-  </body>
+
+  <div class="controles">
+    <button id="prev" aria-label="Anterior">‹</button>
+    <div class="dots" id="dots"></div>
+    <button id="next" aria-label="Siguiente">›</button>
+  </div>
+</section>
+
+<script>
+  const carrusel = document.getElementById('carrusel');
+  const slides = carrusel.querySelectorAll('.slide');
+  const dotsBox = document.getElementById('dots');
+
+  slides.forEach(() => {
+    const d = document.createElement('span');
+    d.className = 'dot';
+    dotsBox.appendChild(d);
+  });
+  const dots = dotsBox.querySelectorAll('.dot');
+
+  function actualizar() {
+    const i = Math.round(carrusel.scrollLeft / carrusel.clientWidth);
+    dots.forEach((d, n) => d.classList.toggle('activo', n === i));
+  }
+  carrusel.addEventListener('scroll', actualizar);
+  actualizar();
+
+  document.getElementById('next').onclick = () =>
+    carrusel.scrollBy({ left: carrusel.clientWidth, behavior: 'smooth' });
+  document.getElementById('prev').onclick = () =>
+    carrusel.scrollBy({ left: -carrusel.clientWidth, behavior: 'smooth' });
+</script>
+
+<hr class="linea2">
+
+<nav class="barramarcas">
+  <p class="titulomarca">EXPLORÁ POR MARCA</p>
+  <a href="marcas.html" class="marca1">Kalua</a>
+  <a href="marcas.html" class="marca2">Rondina</a>
+  <a href="marcas.html" class="marca3">Hola</a>
+  <a href="marcas.html" class="marca4">Ejemplo</a>
+  <a href="catalogo.html" class="vermas">Ver todas ↗</a>
+</nav>
+
+<hr class="linea3">
+
+<div class="contenedor">
+  <h2 class="titulo">Elegí por categorías</h2>
+  <div class="marcas">
+    <img src="cat1.png" alt="Categoría 1">
+    <img src="cat2.png" alt="Categoría 2">
+    <img src="cat3.png" alt="Categoría 3">
+    <img src="cat4.png" alt="Categoría 4">
+    <img src="cat5.png" alt="Categoría 5">
+  </div>
 </body>
 </html>
