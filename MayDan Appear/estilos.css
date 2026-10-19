@@ -1,0 +1,164 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #191919;
+  background-color: #ffffff;
+}
+
+.barraanuncio {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  padding: 7px 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+
+
+.barraprincipal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  space-evenly: center;
+}
+
+.logotipo {
+  flex: 0 0 auto;
+  width: 160px;
+  height: auto;
+}
+
+
+.barrabusqueda {
+  display: flex;
+  align-items: center;
+  width: 55%;
+  min-width: 0;
+  gap: 16px;
+  height: 50px;
+  padding: 0 16px;
+  background-color: #eeeeee;
+  border-radius: 4px;
+  center;
+  position: relative;
+
+
+  .inputbuscador {
+    min-width: 0;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+  }
+
+  .botonbuscador {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+  }
+
+  .iconobuscar {
+    font-size: 38px;
+  }
+}
+
+.botonesextra {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  right: 5%;
+}
+
+.iconocarrito {
+  width: 36px;
+  height: auto;
+}
+
+.iconofavoritos {
+  width: 36px;
+  height: auto;
+}
+
+.linea1 {
+    margin-top:0%;
+
+}
+
+
+ /* TODO: BARRA DEL MENÚ */
+ .menu {
+  display: flex;
+  justify-content: left;
+  padding: 10px 0;
+  font-size: 18px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  padding-left: 5%;
+  font-weight: 500;
+  height: 35px;
+  gap: 40px;
+}
+
+.inicio {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  color: #191919;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.inicio::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 3px;
+  background-color: #cf9b9c;
+  left: -10%;
+  top: 120%;
+
+}
+
+.catalogo, .nosotros, .servicios, .contacto {
+  color: #191919;
+  text-decoration: none;
+}
+
+.recienllegados {
+  color: #db7b9b;
+  text-decoration: none;
+  margin-left: 40%;
+
+}
+
+/* TODO: CARRUSEL */
+.carrusel {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  gap: 0px;
+  justify-content: space-between;
+}
+
+
