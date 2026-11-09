@@ -174,7 +174,7 @@ body {
   align-items: flex-start;
   flex: 0 0 50%;
   min-width: 0;
-  padding: 0 10%;
+  padding: 8% 3%;
   background-color: #e3bcc1;
 }
 .textocarrusel > * { margin: 0; }
@@ -283,3 +283,54 @@ margin-right: auto;
   border: 0;
   border-top: 1px solid #e8e1e1;
 }
+
+/* Contenedor principal que envuelve todo (Categorías + Imágenes) */
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;       /* Coloca las categorías arriba y las imágenes abajo */
+  gap: 1rem;                    /* Controla la distancia vertical entre las categorías y las imágenes */
+}
+
+/* 1. El contenedor principal ya NO fuerza una fila horizontal */
+.contenedor { 
+  display: flex;
+  flex-direction: column;       /* Obliga al título a quedarse arriba y al bloque de imágenes abajo */
+  gap: 1rem;                    /* Separación entre el título y las imágenes */
+  line-height: 1;               
+}
+
+/* 2. Trasladamos las propiedades del slider HORIZONTAL al bloque interno */
+.marcas {
+  display: flex; 
+  flex-direction: row;          /* Las imágenes se alinean una al lado de la otra */
+  flex-wrap: nowrap;            /* Evita que se bajen a la siguiente línea */
+  overflow-x: auto;             /* Activa el scroll horizontal aquí */
+  overflow-y: hidden; 
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth; 
+  scrollbar-width: none;        /* Oculta la barra en Firefox */
+  gap: 0.5rem;                  /* ¡CLAVE! Controla de forma exacta y corta la distancia entre imágenes */
+}
+
+/* Oculta la barra de scroll en Chrome, Safari y Edge */
+.marcas::-webkit-scrollbar {
+  display: none;
+}
+
+.titulo { 
+  padding: 0% 3%; 
+  margin: 0;                    /* Resetea márgenes por defecto del h2 */
+}
+
+/* 3. Estilos limpios para tus imágenes */
+.cat1, .cat2, .cat3, .cat4 { 
+  flex-shrink: 0;               /* Evita que las imágenes se aplasten */
+  scroll-snap-align: start;     /* Mantiene el enganche del scroll por imagen */
+  width: 18rem;                 /* Tamaño fijo para que se genere el desborde horizontal */
+  height: auto;                 /* Mantiene la proporción de tus imágenes */
+  object-fit: cover;            /* Hace que la imagen llene el espacio de forma limpia */
+}
+
+
+
+
