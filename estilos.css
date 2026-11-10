@@ -15,6 +15,14 @@ body {
   background-color: #ffffff;
 }
 
+.cabecera-fija {
+  position: sticky;
+  top: 0;
+  z-index: 1000;              /* Asegura que quede siempre por encima del carrusel y demás contenido */
+  background-color: #ffffff;  /* Evita que el contenido del scroll se transparente por detrás */
+  width: 100%;
+}
+
 .barraanuncio {
   background-color: #000000;
   color: #ffffff;
@@ -103,7 +111,7 @@ body {
   align-items: center;
   gap: 2.5rem;
   min-height: 2.5rem;
-  padding: 0.5rem 0 0.5rem 5%;
+  padding: 0.5rem 0 1.25rem 5%;
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
@@ -143,9 +151,8 @@ body {
 
 .carrusel-wrap {
   position: relative;
-  margin-top: 0.8rem;
+  margin-top: 0;
 }
-
 
 .carrusel {
   display: flex;
@@ -157,7 +164,6 @@ body {
 }
 .carrusel::-webkit-scrollbar { display: none; }
 
-
 .slide {
   flex: 0 0 100%;
   min-width: 0;
@@ -165,7 +171,6 @@ body {
   display: flex;
   aspect-ratio: 1920 / 340;
 }
-
 
 .textocarrusel {
   display: flex;
@@ -263,8 +268,6 @@ body {
 margin-right: auto;
 }
 
-.marca4 {
-}
 .marca1, .marca2, .marca3, .marca4 {
   color: #191919;
   text-decoration: none;
@@ -284,53 +287,80 @@ margin-right: auto;
   border-top: 1px solid #e8e1e1;
 }
 
-/* Contenedor principal que envuelve todo (Categorías + Imágenes) */
-.contenedor-principal {
-  display: flex;
-  flex-direction: column;       /* Coloca las categorías arriba y las imágenes abajo */
-  gap: 1rem;                    /* Controla la distancia vertical entre las categorías y las imágenes */
-}
-
-/* 1. El contenedor principal ya NO fuerza una fila horizontal */
 .contenedor { 
   display: flex;
-  flex-direction: column;       /* Obliga al título a quedarse arriba y al bloque de imágenes abajo */
-  gap: 1rem;                    /* Separación entre el título y las imágenes */
-  line-height: 1;               
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+  box-sizing: border-box;
 }
 
-/* 2. Trasladamos las propiedades del slider HORIZONTAL al bloque interno */
+.titulo { 
+  margin: 0;
+  text-align: left;
+}
+
 .marcas {
   display: flex; 
-  flex-direction: row;          /* Las imágenes se alinean una al lado de la otra */
-  flex-wrap: nowrap;            /* Evita que se bajen a la siguiente línea */
-  overflow-x: auto;             /* Activa el scroll horizontal aquí */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   overflow-y: hidden; 
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth; 
-  scrollbar-width: none;        /* Oculta la barra en Firefox */
-  gap: 0.5rem;                  /* ¡CLAVE! Controla de forma exacta y corta la distancia entre imágenes */
+  scrollbar-width: none;
+  gap: 1rem;
+  width: 100%;
 }
 
-/* Oculta la barra de scroll en Chrome, Safari y Edge */
 .marcas::-webkit-scrollbar {
   display: none;
 }
 
-.titulo { 
-  padding: 0% 3%; 
-  margin: 0;                    /* Resetea márgenes por defecto del h2 */
+/* El contenedor individual adopta el tamaño y scroll previo */
+.tarjeta-categoria {
+  flex: 1;
+  min-width: 16rem;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Separación entre la imagen y el botón */
 }
 
-/* 3. Estilos limpios para tus imágenes */
+/* Las imágenes conservan su tamaño, posición y proporción */
 .cat1, .cat2, .cat3, .cat4 { 
-  flex-shrink: 0;               /* Evita que las imágenes se aplasten */
-  scroll-snap-align: start;     /* Mantiene el enganche del scroll por imagen */
-  width: 18rem;                 /* Tamaño fijo para que se genere el desborde horizontal */
-  height: auto;                 /* Mantiene la proporción de tus imágenes */
-  object-fit: cover;            /* Hace que la imagen llene el espacio de forma limpia */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
 }
 
+/* Estilo del botón / caja de texto */
+.boton-categoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  border-radius: 8px; /* Bordes un poco redondeados */
+  background-color: transparent;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
 
+/* Efecto hover: fondo #db7b9b */
+.boton-categoria:hover {
+  background-color: #db7b9b;
+  color: #ffffff; /* Texto en blanco para buen contraste */
+}
+
+.flecha {
+  font-size: 1.15rem;
+  line-height: 1;
+  font-size: large;
+}
 
 
