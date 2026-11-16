@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MayDan Appear | Tienda online</title>
+  <link rel="stylesheet" href="catalogoestilos.css">
+</head>
+
+<body>
+
+   <!-- TODO: 1) BARRA DE ANUNCIO-->
+<div class="cabecera-fija">
+
+  <div class="barraanuncio">
+    Descubrí prendas, marcas y nuevas combinaciones.
+  </div>
+
+  <header class="header">
+    <div class="barraprincipal">
+      <img class="logotipo" src="logo.png" alt="Logotipo de MayDan Appear">
+
+      <!-- CUADRO DE BUSQUEDA -->
+      <form class="barrabusqueda" role="search">
+        <input class="inputbuscador"
+               type="search"
+               aria-label="Buscar"
+               autocomplete="off"
+               inputmode="search"
+               placeholder="¿Qué estás buscando?">
+        <button type="submit" class="botonbuscador" aria-label="Buscar">
+          <span class="iconobuscar">⌕</span>
+        </button>
+      </form>
+
+      <nav class="botonesextra">
+        <a href="carro.html"><img class="iconocarrito" src="carro.png" alt="Carrito de Compras"></a>
+        <a href="favoritos.html"><img class="iconofavoritos" src="corazon.png" alt="Favoritos"></a>
+      </nav>
+    </div>
+  </header>
+
+  <hr class="linea1">
+
+  <!-- BARRA DE MENÚ -->
+  <nav class="menu">
+    <a href="index.html" class="inicio">Inicio</a>
+    <a href="catalogo.html" class="catalogo">Catálogo</a>
+    <a href="contacto.html" class="contacto">Contacto</a>
+    <a href="recienllegados.html" class="recienllegados">Recién Llegados ↗</a>
+  </nav>
+
+</div>
+
+
+<main class="catalogo-seccion">
+
+  <!-- Cabecera superior: Título + Contador + Ordenar por -->
+  <div class="catalogo-top-bar">
+    <h1 class="catalogo-titulo">Nuestro Catálogo</h1>
+
+    <div class="catalogo-meta">
+      <span class="catalogo-subtitulo" id="contador-productos">30 prendas</span>
+      <span class="catalogo-divisor">|</span>
+      <span class="orden-label">Ordenar por:</span>
+
+      <div class="dropdown-maydan" id="dropdown-orden">
+        <button type="button" class="dropdown-boton" aria-expanded="false">
+          <span class="dropdown-texto">Destacados</span>
+          <span class="dropdown-icono">▾</span>
+        </button>
+        <ul class="dropdown-lista">
+          <li class="dropdown-opcion activo" data-valor="defecto">Destacados</li>
+          <li class="dropdown-opcion" data-valor="menor">Precio: Menor a mayor</li>
+          <li class="dropdown-opcion" data-valor="mayor">Precio: Mayor a menor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Diseño en 2 columnas: Barra lateral izquierda + Grilla de prendas -->
+  <div class="catalogo-layout">
+
+    <!-- BARRA LATERAL DE FILTROS -->
+    <aside class="filtros-sidebar">
+      <div class="sidebar-cabecera">
+        <h2 class="sidebar-titulo">Filtrar</h2>
+        <button type="button" class="btn-limpiar" id="btn-limpiar-filtros">Limpiar</button>
+      </div>
+
+      <!-- Filtro: Marca -->
+      <div class="filtro-grupo">
+        <button type="button" class="filtro-grupo-btn">
+          <span>Marca</span>
+          <span class="filtro-flecha">⌃</span>
+        </button>
+        <div class="filtro-contenido">
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="marca" value="Marca 01"> Marca 01</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="marca" value="Marca 02"> Marca 02</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="marca" value="Marca 03"> Marca 03</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="marca" value="Marca 04"> Marca 04</label>
+        </div>
+      </div>
+
+      <!-- Filtro: Categoría -->
+      <div class="filtro-grupo">
+        <button type="button" class="filtro-grupo-btn">
+          <span>Categoría</span>
+          <span class="filtro-flecha">⌃</span>
+        </button>
+        <div class="filtro-contenido">
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Remeras"> Remeras</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Camisas"> Camisas</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Pantalones"> Pantalones</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Shorts y Polleras"> Shorts y Polleras</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Vestidos"> Vestidos</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Abrigos"> Abrigos</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="categoria" value="Deportivo"> Deportivo</label>
+        </div>
+      </div>
+
+      <!-- Filtro: Género -->
+      <div class="filtro-grupo">
+        <button type="button" class="filtro-grupo-btn">
+          <span>Género</span>
+          <span class="filtro-flecha">⌃</span>
+        </button>
+        <div class="filtro-contenido">
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="genero" value="Mujer"> Mujer</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="genero" value="Hombre"> Hombre</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="genero" value="Unisex"> Unisex</label>
+        </div>
+      </div>
+
+      <!-- Filtro: Talle -->
+      <div class="filtro-grupo">
+        <button type="button" class="filtro-grupo-btn">
+          <span>Talle</span>
+          <span class="filtro-flecha">⌃</span>
+        </button>
+        <div class="filtro-contenido">
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="XS"> XS</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="S"> S</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="M"> M</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="L"> L</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="XL"> XL</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="38"> 36 - 40</label>
+          <label class="filtro-checkbox-label"><input type="checkbox" class="filtro-check" data-tipo="talle" value="42"> 42 - 46</label>
+        </div>
+      </div>
+
+      <!-- Filtro: Color -->
+      <div class="filtro-grupo">
+        <button type="button" class="filtro-grupo-btn">
+          <span>Color</span>
+          <span class="filtro-flecha">⌃</span>
+        </button>
+        <div class="filtro-contenido">
+          <div class="colores-grid">
+            <button type="button" class="color-circulo" data-color="blanco" title="Blanco" style="background-color: #ffffff;"></button>
+            <button type="button" class="color-circulo" data-color="negro" title="Negro" style="background-color: #111111;"></button>
+            <button type="button" class="color-circulo" data-color="azul" title="Azul" style="background-color: #4b6b94;"></button>
+            <button type="button" class="color-circulo" data-color="rosa" title="Rosa" style="background-color: #db7b9b;"></button>
+            <button type="button" class="color-circulo" data-color="rojo" title="Rojo / Bordo" style="background-color: #9e0b22;"></button>
+            <button type="button" class="color-circulo" data-color="beige" title="Beige / Marrón" style="background-color: #d8c3a5;"></button>
+            <button type="button" class="color-circulo" data-color="verde" title="Verde" style="background-color: #3f5e45;"></button>
+            <button type="button" class="color-circulo" data-color="gris" title="Gris" style="background-color: #8c8c8c;"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtro: Precio -->
+      <div class="filtro-grupo">
+        <button type="button" class="filtro-grupo-btn">
+          <span>Precio</span>
+          <span class="filtro-flecha">⌃</span>
+        </button>
+        <div class="filtro-contenido">
+          <div class="rango-precio-box">
+            <div class="rango-slider-wrap">
+              <div class="rango-barra-fondo"></div>
+              <div class="rango-barra-activa" id="rango-barra-activa"></div>
+              <input type="range" id="precio-min" class="rango-input" min="75000" max="390000" step="5000" value="75000">
+              <input type="range" id="precio-max" class="rango-input" min="75000" max="390000" step="5000" value="390000">
+            </div>
+            <div class="rango-valores" id="rango-valores">Gs. 75.000 — Gs. 390.000</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ZONA PRINCIPAL DE PRENDAS + PAGINACIÓN -->
+    <section class="catalogo-principal">
+      <div id="grid-productos" class="catalogo-grid"></div>
+      <div id="paginacion" class="paginacion"></div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-columna">
+      <h3 class="footer-titulo">Ayuda</h3>
+      <ul class="footer-lista">
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Preguntas frecuentes (FAQs)</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Seguimiento de pedidos</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Política de cambios y devoluciones</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-columna">
+      <h3 class="footer-titulo">La empresa</h3>
+      <ul class="footer-lista">
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Sobre nosotros</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Horarios</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Trabaja con nosotros</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-columna">
+      <h3 class="footer-titulo">Legales</h3>
+      <ul class="footer-lista">
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Términos y Condiciones</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Política de Privacidad</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-boton">
+            <span>Aviso Legal</span>
+            <span class="footer-flecha">&#10132;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="footer-columna footer-columna-redes">
+      <div class="redes-sociales">
+        <a href="https://wa.me/" class="footer-boton-social" target="_blank" rel="noopener noreferrer">
+          <img src="3.png" alt="WhatsApp" class="footer-icono-social">
+        </a>
+        <a href="https://instagram.com/" class="footer-boton-social" target="_blank" rel="noopener noreferrer">
+          <img src="2.png" alt="Instagram" class="footer-icono-social">
+        </a>
+        <a href="https://tiktok.com/" class="footer-boton-social" target="_blank" rel="noopener noreferrer">
+          <img src="1.png" alt="TikTok" class="footer-icono-social">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="catalogo.js"></script>
+</body>
+</html>
+
